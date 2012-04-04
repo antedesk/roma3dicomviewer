@@ -7,8 +7,20 @@ import org.dcm4che2.data.DicomObject;
 import org.dcm4che2.data.SequenceDicomElement;
 import org.dcm4che2.data.Tag;
 
+/**
+ * Permette di 
+ * @author utente
+ *
+ */
 public class DicomHelper {
 
+	/**
+	 * dato un dicomObject verifica se questo è di tipo SequenceDicomElement o meno
+	 * se lo è per ogni dicomelement contenuto nella lista item del S.D.E. estrae i byte e li
+	 * memorizza in un oggetto ByteArrayOutputStream
+	 * @param dcmObj
+	 * @return uno stram di byte
+	 */
 	public static byte[] readPixelData(DicomObject dcmObj)
 	{
 		DicomElement dicomElement = dcmObj.get(Tag.PixelData);
@@ -46,8 +58,10 @@ public class DicomHelper {
 	}
 
 
-	/*
-	 * switch the grayscale of the pixels
+	/**
+ 	 * switch the grayscale of the pixels 
+	 * @param pixelData
+	 * @return
 	 */
 	 public static int[] invertPixels(int pixelData[])
 	{
@@ -64,7 +78,13 @@ public class DicomHelper {
 	 return pixelData;
 	}
 
-
+	 /**
+	  * Funzione per il settaggio della luminosità e contrasto
+	  * @param pixelData
+	  * @param brightness
+	  * @param contrast
+	  * @return
+	  */
 	public static int[] setBrightnessAndContrast(int pixelData[], int brightness, int contrast)
 	{
 		LUTable lut = new LUTable();
@@ -95,8 +115,18 @@ public class DicomHelper {
 	}
 
 
-	/*
+	/**
 	 * prepare for painting: convert a given byte[] to int[]
+	 * actually we do not accept byte data exceeding 4MB
+	 * 
+	 * task: far si che ne accetti file di dimensione maggiore
+	 * 
+	 * @param bytePixels
+	 * @param bitsAllocated
+	 * @param width
+	 * @param height
+	 * @param invert
+	 * @return
 	 */
 	public static int[] convertToIntPixelData(byte bytePixels[], int bitsAllocated, int width, int height, boolean invert)
 	{

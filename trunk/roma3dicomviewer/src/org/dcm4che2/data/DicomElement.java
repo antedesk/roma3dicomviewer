@@ -4,9 +4,12 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.regex.Pattern;
 
-/* Le classi che implementano questa interface vengono trasformate 
- * in uno stream di byte */
-
+/**
+ * Le classi che implementano questa interface vengono trasformate 
+ * in uno stream di byte  
+ * @author utente
+ *
+ */
 public interface DicomElement extends Serializable { 
 	int tag();
 

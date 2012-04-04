@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 /**
+ * Permette la creazione e la gestione di un oggetto che contiene un insieme di dicomObject
+ * inoltre è possibile farne una gestione
+ * 
  * @author gunter zeilinger(gunterze@gmail.com)
  * @version $Reversion$ $Date: 2010-01-15 11:18:54 +0100 (Fri, 15 Jan 2010) $
  * @since Sep 3, 2005

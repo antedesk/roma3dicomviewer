@@ -3,6 +3,14 @@ package de.mdv;
 import java.io.File;
 import java.io.FileFilter;
 
+/**
+ * Questa classe filtra quali sono file dicom accettabili e quali no.
+ * come estensione accetta solo .dcm o nessuna estensione
+ * 
+ * target far accettare altre estensioni dicom conosciute
+ * @author utente
+ *
+ */
 public class DicomFileFilter implements FileFilter{
 
 	public boolean accept(File pathname) 
