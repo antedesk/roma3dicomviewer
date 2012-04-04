@@ -16,6 +16,9 @@ public class ImageGray16Bit {
 	private int[] imageData = null;
 	private int[] originalImageData = null;
 
+	/**
+	 * Informazioni sul paziente
+	 */
 	private String patientName;
 	private String patientPrename;
 	private String patientBirth;
@@ -31,7 +34,11 @@ public class ImageGray16Bit {
 		return imageData;
 	}
 
-	// make a safe copy of the image data 
+	
+	/**
+	 * make a safe copy of the image data 
+	 * @param imageData
+	 */
 	public void setOriginalImageData(int[] imageData)
 	{
 		if(imageData == null)
@@ -40,7 +47,10 @@ public class ImageGray16Bit {
 		System.arraycopy(imageData, 0, this.originalImageData, 0, imageData.length);
 	}
 
-	// return only a copy of the original image data - leave the original image data unchanged
+	/**
+	 * return only a copy of the original image data - leave the original image data unchanged
+	 * @return
+	 */
 	public int[] getOriginalImageData()
 	{
 		if(this.originalImageData == null)
@@ -50,7 +60,10 @@ public class ImageGray16Bit {
 		return result;
 	}
 
-
+	/*
+	 * metodi per la gestione dei dati delle immagini e dei pazienti
+	 */
+	
 	public void setWidth(int width)
 	{
 		this.width = width;

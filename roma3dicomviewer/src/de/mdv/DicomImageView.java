@@ -9,6 +9,13 @@ import android.view.GestureDetector;
 import android.view.ScaleGestureDetector;
 import android.widget.ImageView;
 
+/**
+ * Permette la visualizzazione delle immagini dicom utilizzando ImageGray16Bit. Tale tipologia di immagine è settata a mano
+ * Possibilità di creare immagini Bitmap anch'esse saranno settate manualmente.
+ * Contiene le informazioni per lo zoom (che stesso l'autore evidenzia) e le informazioni per GestureDetector
+ * @author utente
+ *
+ */
 
 public class DicomImageView extends ImageView{
 
@@ -24,11 +31,13 @@ public class DicomImageView extends ImageView{
 	static final int ZOOM = 2;
 	int mode = NONE;
 
-	// Remember some things for zooming
+	/**
+	 *  Remember some things for zooming
+	 */
 	PointF last = new PointF();
 	PointF start = new PointF();
-	float minScale = 1f;
-	float maxScale = 5f;
+	float minScale = 1f;	// zoom minimo
+	float maxScale = 5f;	// zoom massimo può essere settato
 	float cachedScaleFactor = 1f;
 	float[] m;
 
@@ -45,7 +54,10 @@ public class DicomImageView extends ImageView{
 	ScaleGestureDetector mScaleDetector;
 
 
-
+	/**
+	 * Costruttori estendono quelli di ImageView, inizializzando i click event e il touch listener
+	 */
+	
 	public DicomImageView(Context context)
 	{
 		super(context);
@@ -68,6 +80,7 @@ public class DicomImageView extends ImageView{
 	}
 
 
+	
 	void initNew()
 	{
 		super.setClickable(true);
@@ -75,13 +88,16 @@ public class DicomImageView extends ImageView{
 	}
 
 
-
+	
+	 // ma è proprio indispensabile ? -.-
 	public void init()
 	{
 		initNew();
 	}
 
-
+	/**
+	 * metodo per disegnare, crea una bitmap a partire da image
+	 */
 	public void draw()
 	{
 		if(image != null && image.getImageData() != null)
@@ -104,12 +120,19 @@ public class DicomImageView extends ImageView{
 		}
 	}
 
-
+	/**
+	 * metodo per settare un ImageGray16Bit
+	 * @param image
+	 */
 	public void setImage(ImageGray16Bit image)
 	{
 		this.image = image;
 	}
 
+	/**
+ 	 * metodo per settare un ImageGray16Bit
+	 * @return ImageGray16Bit
+	 */
 
 	public ImageGray16Bit getImage()
 	{
@@ -124,6 +147,7 @@ public class DicomImageView extends ImageView{
 		bmHeight = bm.getHeight();
 	}
 
+	
 	public void setMaxZoom(float x)
 	{
 		maxScale = x;
@@ -176,7 +200,12 @@ public class DicomImageView extends ImageView{
 		super.setImageMatrix(matrix);
 	}
 
-
+	/**
+	 * Get the image width and height
+	 * Compute the translation
+	 * Set the transformation
+	 * Set the Image Matrix
+	 */
 	public void paintCachedSize()
 	{
 		// Get the image width and height
@@ -196,7 +225,12 @@ public class DicomImageView extends ImageView{
 	}
 
 
-
+	/**
+	 * permette di settare un fattore di scala (zoom) memorizzato/cached che di default è 1
+	 * è possibile settarlo
+	 * task: a runtime prendere di volta in volta lo zoom e passarlo all'immagine successiva
+	 * @param cachedScaleFactor
+	 */
 	public void setCachedScaleFactor(float cachedScaleFactor)
 	{
 		this.cachedScaleFactor = cachedScaleFactor;

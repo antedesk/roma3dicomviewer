@@ -67,7 +67,10 @@ public class DicomReader {
 		}
 	}
 
-
+	/*
+	 * metodi per la gestione delle informazioni sull'immagine
+	 */
+	
 	public int[] getPixelData()
 	{
 		return pixelData;
@@ -83,6 +86,10 @@ public class DicomReader {
 		return height;
 	}
 
+	/*
+	 * metodi per la gestione dell'anagrafica di base del paziente
+	 */
+	
 	public String getPatientName()
 	{
 		return PatientName;

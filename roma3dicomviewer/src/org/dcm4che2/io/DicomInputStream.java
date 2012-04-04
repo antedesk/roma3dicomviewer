@@ -239,6 +239,7 @@ public class DicomInputStream extends FilterInputStream implements
             }
         } catch (IOException ignore) {
             // ignore read errors; we'll guess something smart
+        	//loool
         }
         reset();
         
