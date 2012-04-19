@@ -17,13 +17,13 @@ public class DicomFileFilter implements FileFilter{
 	{
 		if (pathname.isFile() && !pathname.isHidden()) 
 		{
-			// Get the file name
+			// Prende il nome del file
 			String fileName = pathname.getName();
 			fileName = fileName.toLowerCase();
-			// If the file is a dicomdir return false
+			// Se il file è una dicomdir ritorna false
 			if (fileName.equals("dicomdir"))
 				return false;
-			// file must end with ".dcm" or no extension
+			// il file deve finire con ".dcm" oppure ritorna false
 			if(fileName.lastIndexOf(".") == -1)return true;
 			if(fileName.endsWith("dcm"))return true;
 		}

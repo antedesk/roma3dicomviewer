@@ -19,7 +19,7 @@ public class DicomHelper {
 	 * se lo è per ogni dicomelement contenuto nella lista item del S.D.E. estrae i byte e li
 	 * memorizza in un oggetto ByteArrayOutputStream
 	 * @param dcmObj
-	 * @return uno stram di byte
+	 * @return uno stream di byte
 	 */
 	public static byte[] readPixelData(DicomObject dcmObj)
 	{
