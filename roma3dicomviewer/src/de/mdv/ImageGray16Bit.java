@@ -5,8 +5,9 @@ public class ImageGray16Bit {
 	private int width = 0;
 
 	/**
-	 * Image height that correspond to
-	 * the number of row.
+	 * L'altezza dell'immagine che corrsponde
+	 * al numero di righe.
+	 *
 	 */
 	private int height = 0;
 
@@ -36,19 +37,24 @@ public class ImageGray16Bit {
 
 	
 	/**
-	 * make a safe copy of the image data 
+	/* Se l'immagine non esiste, creo una nuova immagine vuota.
+	 * Altrimenti creo una nuova immagine uguale a quella passata
+	 * come parametro.
+	 * Fa una copia sicura dei dati dell'immagine.
 	 * @param imageData
 	 */
 	public void setOriginalImageData(int[] imageData)
 	{
-		if(imageData == null)
+		
+		if(imageData == null) 
 			this.originalImageData = imageData;
 		this.originalImageData = new int[imageData.length];
 		System.arraycopy(imageData, 0, this.originalImageData, 0, imageData.length);
 	}
 
 	/**
-	 * return only a copy of the original image data - leave the original image data unchanged
+	 * Ritorna solo una copia dell'immagine originale
+	 * lascia l'originale intatta.
 	 * @return
 	 */
 	public int[] getOriginalImageData()
