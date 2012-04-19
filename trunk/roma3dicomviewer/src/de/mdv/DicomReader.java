@@ -19,13 +19,23 @@ public class DicomReader {
 	String PatientPrename = "";
 	Date PatientBirth = null;
 	String PatientBirthString = "";
+	
+	/**
+	 * Semplice costruttore che prende in input una stringa, questa stringa viene poi passata
+	 * come paramtero al metodo " init(String filename)"
+	 * @param fileName
+	 */
 
 	public DicomReader(String fileName)
 	{
 		this.init(fileName);
 	}
 
-
+	/**
+	 * 
+	 * @param fileName
+	 */
+	
 	private void init(String fileName)
 	{
 		try
