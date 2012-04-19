@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry kind="lib" path="C:/Users/Matteo/Documents/Tirocinio/dicom-imageio-plugin-demo-1.11/dicom-imageio-plugin-1.11/lib/dicom.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
